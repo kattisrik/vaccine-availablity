@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ReCAPTCHA from "react-google-recaptcha"
 import './App.css'
@@ -24,7 +23,6 @@ function App() {
   })
 
   const onChange = async (value) => {
-    console.log("Captcha value:", value)
     let verified = false;
     verified = await validateReCaptcha(value);
     setValidate({ ...state, recaptcha: verified });
