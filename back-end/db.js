@@ -1,5 +1,5 @@
 const MongoClient = require("mongodb").MongoClient;
-const dbConnectionUrl = "mongodb+srv://admin:katti@cluster0.ggbyr.mongodb.net/notifyme?retryWrites=true&w=majority";
+const dbConnectionUrl = "mongodb+srv://<username>:<password>@cluster0.ggbyr.mongodb.net/notifyme?retryWrites=true&w=majority";
 
 function initialize(
     dbName,
