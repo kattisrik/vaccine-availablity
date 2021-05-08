@@ -20,7 +20,7 @@ function App() {
     email: '',
     age: '',
     pincode: '',
-    recaptcha: false
+    recaptcha: true
   })
 
   const onChange = async (value) => {
