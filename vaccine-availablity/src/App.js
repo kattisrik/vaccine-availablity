@@ -146,7 +146,7 @@ function App() {
         </Col>
         <Col sm="12" md={{ size: 6, offset: 3 }}>
           <FormGroup className='captcha'>
-            <ReCAPTCHA sitekey="hiqNem-pasxuh-2fakdi" onChange={ onChange } />
+            <ReCAPTCHA sitekey="6LfMm8saAAAAADXGqckjNQwjDm1a6tVWZnF6N-7v" onChange={ onChange } />
           </FormGroup>
         </Col>
         <Col sm="12" md={{ size: 6, offset: 3 }} className='button'>
