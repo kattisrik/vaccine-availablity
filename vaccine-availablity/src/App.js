@@ -77,9 +77,12 @@ function App() {
       }
     }
   }
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     if (Object.values(validate).every(item => item === true)) {
       postData(state);
+      setState({ email: '', age: '', pincode: '' });
+      setValidate({ email: '', age: '', pincode: '', recaptcha: true });
     }
     else {
       alert('Please fill proper data')
@@ -89,7 +92,7 @@ function App() {
     <Container className="App">
       <h2 className='header'>Check Vaccine Availability</h2>
       <Form className="form" onSubmit={ handleSubmit } method='POST' inline>
-        <Col sm="12" md={{ size: 6, offset: 3 }}>
+        <Col sm="12" md={ { size: 6, offset: 3 } }>
           <FormGroup>
             <Label for='email' className='label' >Email :</Label>
             <Input
@@ -108,7 +111,7 @@ function App() {
             />
           </FormGroup>
         </Col>
-        <Col sm="12" md={{ size: 6, offset: 3 }}>
+        <Col sm="12" md={ { size: 6, offset: 3 } }>
           <FormGroup>
             <Label for="age" className='label'>Age :</Label>
             <Input
@@ -126,7 +129,7 @@ function App() {
             />
           </FormGroup>
         </Col>
-        <Col sm="12" md={{ size: 6, offset: 3 }}>
+        <Col sm="12" md={ { size: 6, offset: 3 } }>
           <FormGroup>
             <Label for="pincode" className='label'>Pincode :</Label>
             <Input
@@ -144,13 +147,13 @@ function App() {
             />
           </FormGroup>
         </Col>
-        <Col sm="12" md={{ size: 6, offset: 3 }}>
+        <Col sm="12" md={ { size: 6, offset: 3 } }>
           <FormGroup className='captcha'>
-            <ReCAPTCHA sitekey="6LfMm8saAAAAADXGqckjNQwjDm1a6tVWZnF6N-7v" onChange={ onChange } />
+            <ReCAPTCHA sitekey="hiqNem-pasxuh-2fakdi" onChange={ onChange } />
           </FormGroup>
         </Col>
-        <Col sm="12" md={{ size: 6, offset: 3 }} className='button'>
-          <Button color='primary' disabled={ !validate.captcha }>Submit</Button>
+        <Col sm="12" md={ { size: 6, offset: 3 } } className='button'>
+          <Button color='primary' disabled={ !validate.recaptcha }>Submit</Button>
         </Col>
       </Form>
     </Container>
