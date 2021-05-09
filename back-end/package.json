@@ -1,0 +1,30 @@
+{
+  "name": "vaccine-availablity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "10.16.2",
+    "npm": "6.14.5"
+  },
+  "keywords": [],
+  "author": "kattisri0@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "mongodb": "^3.6.6",
+    "node-cron": "^3.0.0",
+    "nodemailer": "^6.6.0",
+    "request": "^2.81.0",
+    "es6-promise": "^4.2.8",
+    "isomorphic-fetch": "^3.0.0"
+  }
+}
