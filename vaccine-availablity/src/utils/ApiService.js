@@ -1,5 +1,5 @@
 import axios from 'axios';
-const RECAPTCHA = "https://notifyme-back-end.herokuapp.com/isHuman";
+const RECAPTCHA ='http://localhost:4000/isHuman'// "https://notifyme-back-end.herokuapp.com/isHuman";
 const URL = 'https://notifyme-back-end.herokuapp.com/user';
 
 const instance = axios.create({
@@ -10,12 +10,17 @@ const instance = axios.create({
   });
 
 export const validateReCaptcha = (value) => {
-    axios.get(RECAPTCHA + `/${value}`).then((res) => {
-        return res.data.success;
+    let result = false;
+    axios.post(RECAPTCHA + `?key=${value}`).then((res) => {
+        if(res.status === 200){
+            result =  res.data;
+        }
     }).catch((error) => {
         console.error(error);
-        return false;
-    });
+        result =  false;
+    }).finally(()=>{
+        return result
+    })
 };
 
 export const postData = (data) => {
