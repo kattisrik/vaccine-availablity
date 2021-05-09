@@ -20,13 +20,13 @@ function App() {
     email: '',
     age: '',
     pincode: '',
-    recaptcha: true
+    recaptcha: false
   })
 
-  const onChange = async (value) => {
+  function onChange (value){
     let verified = false;
-    verified = await validateReCaptcha(value);
-    setValidate({ ...state, recaptcha: verified });
+    verified = validateReCaptcha(value);
+    setValidate({ ...validate, recaptcha: verified });
   }
 
   const handleChange = (event) => {
@@ -151,7 +151,7 @@ function App() {
         </Col>
         <Col sm="12" md={ { size: 6, offset: 3 } }>
           <FormGroup className='captcha'>
-            <ReCAPTCHA sitekey="hiqNem-pasxuh-2fakdi" onChange={ onChange } />
+            <ReCAPTCHA sitekey="6LfMm8saAAAAADXGqckjNQwjDm1a6tVWZnF6N-7v" onChange={ onChange } />
           </FormGroup>
         </Col>
         <Col sm="12" md={ { size: 6, offset: 3 } } className='button'>
