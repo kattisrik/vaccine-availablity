@@ -9,13 +9,18 @@ const instance = axios.create({
       }
   });
 
-export const validateReCaptcha = (value) => {
-    axios.get(RECAPTCHA + `/${value}`).then((res) => {
-        return res.data.success;
+export const validateReCaptcha = (value, state, setState) => {
+    let result = false;
+    axios.post(RECAPTCHA + `?key=${value}`).then((res) => {
+        if(res.status === 200){
+            result =  res.data;
+        }
     }).catch((error) => {
         console.error(error);
-        return false;
-    });
+        result =  false;
+    }).finally(()=>{
+        setState({...state,recaptcha: result});
+    })
 };
 
 export const postData = (data) => {
