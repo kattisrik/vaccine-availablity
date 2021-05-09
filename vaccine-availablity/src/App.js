@@ -1,14 +1,15 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ReCAPTCHA from "react-google-recaptcha"
-import './App.css'
+import ReCAPTCHA from "react-google-recaptcha";
+import './App.css';
 import {
   Container, Col, Form,
   FormGroup, Label, Input,
   Button,
 } from 'reactstrap';
-import { emailRex, pincodeRex } from './utils/constants'
-import { postData, validateReCaptcha } from './utils/ApiService'
+import { emailRex, pincodeRex } from './utils/constants';
+import { postData, validateReCaptcha } from './utils/ApiService';
 import React, { useState } from "react";
+
 function App() {
   const [state, setState] = useState({
     email: '',
@@ -27,6 +28,7 @@ function App() {
     verified = await validateReCaptcha(value);
     setValidate({ ...state, recaptcha: verified });
   }
+
   const handleChange = (event) => {
     let value = event.target.value;
     if (event.target.name === 'age') {
@@ -75,6 +77,7 @@ function App() {
       }
     }
   }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (Object.values(validate).every(item => item === true)) {
@@ -83,9 +86,10 @@ function App() {
       setValidate({ email: '', age: '', pincode: '', recaptcha: true });
     }
     else {
-      alert('Please fill proper data')
+      alert('Please fill in proper data');
     }
   }
+
   return (
     <Container className="App">
       <h2 className='header'>Check Vaccine Availability</h2>

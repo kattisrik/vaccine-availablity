@@ -21,13 +21,13 @@ export const validateReCaptcha = (value) => {
 export const postData = (data) => {
     instance.post(URL, data).then((res) => {
         if (res.status === 200)
-            alert(`NO Slots Available currently we will notify you once available...Thank You.`);
+            alert(`Successfully submitted!!! we'll send you a mail when the vaccine is available in your region.`);
         else if (res.status === 201) {
             if (res.data.message) {
                 alert(`${res.data.message}`);
             }
             else {
-                alert(``);
+                alert(`Unable to submit data. please try again in sometime`);
             }
         }
     }).catch((error) => {
