@@ -93,6 +93,9 @@ function App() {
   return (
     <Container className="App">
       <h2 className='header'>Check Vaccine Availability</h2>
+      <br/>
+      <h6 className='header' style={{fontStyle: 'italic'}}>Enter the following details and sit tight. we will send you an email when the vaccines are available in your region.</h6>
+      <br/>
       <Form className="form" onSubmit={ handleSubmit } method='POST' inline>
         <Col sm="12" md={ { size: 6, offset: 3 } }>
           <FormGroup>
@@ -155,7 +158,7 @@ function App() {
           </FormGroup>
         </Col>
         <Col sm="12" md={ { size: 6, offset: 3 } } className='button'>
-          <Button color='primary' disabled={ !validate.recaptcha }>Submit</Button>
+          <Button color='primary' disabled={ !validate.recaptcha }>Notify Me</Button>
         </Col>
       </Form>
     </Container>
