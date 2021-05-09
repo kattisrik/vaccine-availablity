@@ -9,12 +9,21 @@ const transporter = nodemailer.createTransport({
   }
 });
 
+function formatMessage(slots) {
+  let locations = "";
+  slots.map((slot) => {
+    let location = slot.vaccine + " is available on " + slot.date + " Location: " + slot.name + " Address: " + slot.address + ". During the following slots: " + slot.slots.join(", ") + ". ";
+    locations = locations.concat(location);
+  })
+  return locations;
+}
+
 exports.sendEmail = function (slots, email, id) {
     const mailOptions = {
         from: 'availabilityvaccine@gmail.com',
         to: email,
-        subject: 'vaccine Available in your region',
-        text: JSON.stringify(slots)
+        subject: "Available in " + slots.length + " locations. ",
+        text: formatMessage(slots)
       };
       
       transporter.sendMail(mailOptions, function(error, info){
