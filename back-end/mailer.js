@@ -1,24 +1,28 @@
-let nodemailer = require('nodemailer');
+const action = require('./server');
+const nodemailer = require('nodemailer');
 
-let nodemailerTransporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: String(process.env.EMAIL),
-        pass: String(process.env.PASSWORD)
-    }
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'availabilityvaccine@gmail.com',
+    pass: '<password>'
+  }
 });
 
-exports.sendEmail = function (email, subject, details, callback) {
-    let options = {
-        from: String('Vaccine-Availablity ' + process.env.EMAIL),
+exports.sendEmail = function (slots, email, id) {
+    const mailOptions = {
+        from: 'availabilityvaccine@gmail.com',
         to: email,
-        subject: subject,
-        text: 'Vaccine available. Details: \n\n' + details
-    };
-    nodemailerTransporter.sendMail(options, (error, info) => {
+        subject: 'vaccine Available in your region',
+        text: JSON.stringify(slots)
+      };
+      
+      transporter.sendMail(mailOptions, function(error, info){
         if (error) {
-            return callback(error);
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+          action.deleteUser(id);
         }
-        callback(error, info);
-    });
+      });
 };
