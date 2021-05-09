@@ -11,7 +11,7 @@ const instance = axios.create({
 
 export const validateReCaptcha = (value) => {
     let result = false;
-    axios.post(RECAPTCHA + `?key=${value}`).then((res) => {
+    instance.post(RECAPTCHA + `?key=${value}`).then((res) => {
         if(res.status === 200){
             result =  res.data;
         }
