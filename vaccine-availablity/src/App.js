@@ -21,13 +21,11 @@ function App() {
     age: '',
     pincode: '',
     recaptcha: false
-  })
+  });
 
   function onChange (value){
-    let verified = false;
-    verified = validateReCaptcha(value);
-    setValidate({ ...validate, recaptcha: verified });
-  }
+    validateReCaptcha(value,validate,setValidate);
+  };
 
   const handleChange = (event) => {
     let value = event.target.value;
@@ -76,7 +74,7 @@ function App() {
         setState({ ...state, pincode: '' })
       }
     }
-  }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -88,7 +86,7 @@ function App() {
     else {
       alert('Please fill in proper data');
     }
-  }
+  };
 
   return (
     <Container className="App">
