@@ -1,6 +1,6 @@
 import axios from 'axios';
-const RECAPTCHA = "https://notifyme-back-end.herokuapp.com/isHuman";
-const URL = 'https://notifyme-back-end.herokuapp.com/user';
+const RECAPTCHA = "https://vaccine-available.herokuapp.com/isHuman";
+const URL = 'https://vaccine-available.herokuapp.com/user';
 
 const instance = axios.create({
     headers: {
